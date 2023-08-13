@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -7,8 +8,10 @@ const cors = require('cors')
 
 const mongoose = require('mongoose')
  const { Schema } = mongoose;
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/exercise-track', { useNewUrlParser: true }, { useUnifiedTopology: true } )
-
+ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/exercise-track', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const personSchema = new Schema({ username: {type: String, unique: true} });
 const Person = mongoose.model('Person', personSchema);
